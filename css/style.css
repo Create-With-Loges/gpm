@@ -1,0 +1,354 @@
+/* Google Fonts Removed for Offline Mode */
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap'); */
+
+:root {
+    /* Base Variables */
+    --card-bg: rgba(255, 255, 255, 0.95);
+    --text-color: #333;
+    --text-light: #fff;
+    --input-bg: #f8f9fa;
+    --border-radius: 16px;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Use flexible system font stack for offline compatibility */
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+body {
+    background: #f0f2f5;
+    /* Fallback */
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-color);
+    transition: background 0.5s ease;
+}
+
+/* ----------------------------------------------------
+   Distinct Themes
+   ---------------------------------------------------- */
+
+/* Student Theme: Fresh, Teal/Cyan (Growth, Energy) */
+body.theme-student {
+    background: linear-gradient(135deg, #0ba360 0%, #3cba92 100%);
+    --primary-color: #0ba360;
+    --secondary-color: #3cba92;
+    --accent-color: #00b09b;
+}
+
+/* Parent Theme: Warm, Sunset Orange (Protection, Care) */
+body.theme-parent {
+    background: linear-gradient(135deg, #ff512f 0%, #dd2476 100%);
+    --primary-color: #dd2476;
+    --secondary-color: #ff512f;
+    --accent-color: #ff9966;
+}
+
+/* Coordinator/HOD Theme: Professional, Deep Purple/Blue (Authority) */
+body.theme-staff {
+    background: linear-gradient(135deg, #4b6cb7 0%, #182848 100%);
+    --primary-color: #182848;
+    --secondary-color: #4b6cb7;
+    --accent-color: #2c3e50;
+}
+
+/* Gate Theme: Alert, Slate/Steel (Security, Neutrality) */
+body.theme-gate {
+    background: linear-gradient(135deg, #434343 0%, #000000 100%);
+    --primary-color: #434343;
+    --secondary-color: #2b2b2b;
+    --accent-color: #000000;
+}
+
+/* Auth Page Default */
+body.theme-auth {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --primary-color: #6a11cb;
+    --secondary-color: #2575fc;
+}
+
+
+/* ----------------------------------------------------
+   UI Components
+   ---------------------------------------------------- */
+
+.dashboard-container,
+.auth-container {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+.auth-container {
+    padding: 40px;
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+    border-top: 5px solid var(--secondary-color);
+}
+
+.dashboard-container {
+    display: flex;
+    width: 95%;
+    max-width: 1200px;
+    height: 90vh;
+}
+
+.sidebar {
+    width: 260px;
+    background: rgba(248, 249, 250, 0.9);
+    padding: 30px 20px;
+    border-right: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar h3 {
+    margin-bottom: 40px;
+    color: var(--primary-color);
+    text-align: center;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.nav-link {
+    display: block;
+    padding: 14px 20px;
+    margin-bottom: 12px;
+    color: #555;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 500;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background: var(--primary-color);
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transform: translateX(5px);
+}
+
+.logout-btn {
+    margin-top: auto;
+    background: #ff4757;
+    color: white;
+    text-align: center;
+    padding: 12px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.logout-btn:hover {
+    background: #e0404f;
+    box-shadow: 0 4px 10px rgba(255, 71, 87, 0.3);
+}
+
+.main-content {
+    flex: 1;
+    padding: 40px;
+    overflow-y: auto;
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.03);
+}
+
+.header h2 {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    margin-bottom: 25px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+.card h3 {
+    margin-bottom: 20px;
+    color: #444;
+    border-left: 4px solid var(--secondary-color);
+    padding-left: 15px;
+}
+
+/* Form Elements */
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #666;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+input[type="time"],
+select,
+textarea {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    background: #f1f3f6;
+    outline: none;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    background: #fff;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.05);
+}
+
+.btn {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+    color: white;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Status Badges */
+.status-badge {
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.status-pending {
+    background: #fff8e1;
+    color: #ffa000;
+    border: 1px solid #ffe082;
+}
+
+.status-approved {
+    background: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #a5d6a7;
+}
+
+.status-rejected {
+    background: #ffebee;
+    color: #c62828;
+    border: 1px solid #ef9a9a;
+}
+
+.status-completed {
+    background: #e3f2fd;
+    color: #1565c0;
+    border: 1px solid #90caf9;
+}
+
+.status-role {
+    background: var(--input-bg);
+    color: var(--primary-color);
+    border: 1px solid #ddd;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 8px;
+    /* Row spacing */
+    margin-top: 10px;
+}
+
+th {
+    text-align: left;
+    color: #888;
+    font-weight: 600;
+    padding: 0 15px 10px 15px;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+tbody tr {
+    background: #fcfcfc;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+    transition: transform 0.2s;
+}
+
+tbody tr:hover {
+    transform: scale(1.01);
+    background: white;
+}
+
+td {
+    padding: 15px;
+    font-size: 0.95rem;
+    border-top: 1px solid #f0f0f0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+td:first-child {
+    border-left: 1px solid #f0f0f0;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+td:last-child {
+    border-right: 1px solid #f0f0f0;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+
+/* Scrollbar Standardization */
+/* Removed webkit specific scrollbars as requested */
+html {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}
